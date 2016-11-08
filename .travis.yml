@@ -9,5 +9,9 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+before_install:
+    - git clone https://github.com/gchq/event-logging.git
+    - cd event-logging
+    - mvn clean install
 install: true
 script: mvn install
