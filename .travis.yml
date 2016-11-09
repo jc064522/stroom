@@ -2,6 +2,8 @@ language: java
 cache:
   directories:
   - $HOME/.m2
+services:
+  - mysql
 jdk:
   - oraclejdk8
 sudo: false
@@ -9,9 +11,5 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
-before_install:
-    - git clone https://github.com/gchq/event-logging.git
-    - cd event-logging
-    - mvn clean install
-install: true
+install: travis_wait git clone https://github.com/gchq/event-logging.git && cd event-logging && mvn clean install
 script: mvn install
