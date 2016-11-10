@@ -15,5 +15,5 @@ addons:
       - mysql-client-core-5.6
       - mysql-client-5.6
 install: travis_wait git clone https://github.com/gchq/event-logging.git && cd event-logging && mvn -q clean install && cd ../ && rm -rf event-logging
-script: mvn -DSTROOM_JDBC_USERNAME=root -DSTROOM_JDBC_DRIVER_URL=jdbc:mysql://127.0.0.1/stroom?useUnicode=yes&characterEncoding=UTF-8 clean install 
+script: mvn clean install 
 
